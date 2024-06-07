@@ -174,7 +174,7 @@ class BatchedInferencePipeline(Pipeline):
             self.vad_model = self.load_vad_model(
                 vad_onset=self.vad_onset, vad_offset=self.vad_offset
             )
-        self.chunk_size = 30  # VAD merging size
+        self.chunk_size = kwargs.pop("chunk_size", None)  # VAD merging size
 
         super(Pipeline, self).__init__()
 
